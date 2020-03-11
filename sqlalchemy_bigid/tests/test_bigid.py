@@ -83,7 +83,7 @@ def test_alembic_nextbigid_ops(engine):
 
 
 def test_alembic_autogenerate_nextbigid(Foo, connection, Base, engine):
-    from sqlalchemy_bigid.bigid import migration  # noqa
+    from sqlalchemy_bigid import migration  # noqa
 
     context = MigrationContext.configure(
         connection=connection,
