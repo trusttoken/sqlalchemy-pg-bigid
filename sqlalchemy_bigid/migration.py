@@ -8,7 +8,7 @@ from alembic.operations import ops, Operations, MigrateOperation
 from sqlalchemy import DDL
 
 from sqlalchemy_bigid.utils import get_bigid_column_from_table
-from sqlalchemy_bigid.schema import generate_nextbigid_sql, create_function_nextbigid_text
+from sqlalchemy_bigid.schema import generate_nextbigid_sql, get_nextbigid_function_text
 
 
 writer = rewriter.Rewriter()
@@ -55,7 +55,8 @@ class DropNextBigIdFunctionOp(MigrateOperation):
 
 @Operations.implementation_for(CreateNextBigIdFunctionOp)
 def create_nextbigid_function(operations, operation):
-    operations.execute(DDL(create_function_nextbigid_text))
+    function_text = get_nextbigid_function_text()
+    operations.execute(DDL(function_text))
 
 
 @Operations.implementation_for(DropNextBigIdFunctionOp)
