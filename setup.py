@@ -8,6 +8,7 @@ setup(
     name='sqlalchemy-postgres-bigid',
     version=__version__,
     description="SQLAlchemy Postgres Big Integer ID",
+    author='Alvin Chow',
     packages=[
         'sqlalchemy_bigid',
     ],
